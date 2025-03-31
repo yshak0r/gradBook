@@ -1,0 +1,77 @@
+[
+  {
+    "name": "College of Engineering",
+    "campus": "1",
+    "collegeId": 1
+  },
+  {
+    "name": "College of Business",
+    "campus": "1",
+    "collegeId": 2
+  },
+  {
+    "name": "College of Arts and Sciences",
+    "campus": "3",
+    "collegeId": 3
+  },
+  {
+    "name": "College of Medicine",
+    "campus": "14",
+    "collegeId": 4
+  },
+  {
+    "name": "College of Law",
+    "campus": "6",
+    "collegeId": 5
+  },
+  {
+    "name": "College of Education",
+    "campus": "2",
+    "collegeId": 6
+  },
+  {
+    "name": "College of Architecture",
+    "campus": "1",
+    "collegeId": 7
+  },
+  {
+    "name": "College of Nursing",
+    "campus": "14",
+    "collegeId": 8
+  },
+  {
+    "name": "College of Pharmacy",
+    "campus": "14",
+    "collegeId": 9
+  },
+  {
+    "name": "College of Fine Arts",
+    "campus": "3",
+    "collegeId": 10
+  },
+  {
+    "name": "College of Agriculture",
+    "campus": "9",
+    "collegeId": 11
+  },
+  {
+    "name": "College of Veterinary Medicine",
+    "campus": "9",
+    "collegeId": 12
+  },
+  {
+    "name": "College of Information Technology",
+    "campus": "15",
+    "collegeId": 13
+  },
+  {
+    "name": "College of Public Health",
+    "campus": "14",
+    "collegeId": 14
+  },
+  {
+    "name": "College of Social Work",
+    "campus": "6",
+    "collegeId": 15
+  }
+]

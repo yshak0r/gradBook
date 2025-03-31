@@ -17,9 +17,10 @@ router.route("/").get(getAllUsers);
 
 router.route("/:id").get(getProfileDetails);
 router.route("/notifications").get(getNotifications);
-router.route("like/:id").post(likeUser);
-router.route("save/:id").post(saveUser);
+router.route("/like/:id").post(likeUser);
+router.route("/save/:id").post(saveUser);
 router.route("/update").put(updateUser);
 router.route("/comment/:id").post(comment);
+router.route("/comment/:id").get(getComment);
 
 module.exports = router;
