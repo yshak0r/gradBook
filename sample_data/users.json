@@ -8,6 +8,9 @@
     "password": "hashedPassword123",
     "phoneNumber": 1234567890,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439011",
+    "college": "507f1f77bcf86cd799439012",
+    "department": "507f1f77bcf86cd799439013",
     "photo": "https://example.com/photos/john-smith.jpg",
     "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
     "socialLinks": {
@@ -28,6 +31,9 @@
     "password": "hashedPassword456",
     "phoneNumber": 9876543210,
     "graduationYear": 2025,
+    "campus": "507f1f77bcf86cd799439011",
+    "college": "507f1f77bcf86cd799439014",
+    "department": "507f1f77bcf86cd799439015",
     "photo": "https://example.com/photos/sarah-johnson.jpg",
     "quote": "The future belongs to those who believe in the beauty of their dreams.",
     "socialLinks": {
@@ -48,6 +54,9 @@
     "password": "hashedPassword789",
     "phoneNumber": 5555555555,
     "graduationYear": 2023,
+    "campus": "507f1f77bcf86cd799439016",
+    "college": "507f1f77bcf86cd799439017",
+    "department": "507f1f77bcf86cd799439018",
     "photo": "https://example.com/photos/michael-brown.jpg",
     "quote": "Education is the most powerful weapon which you can use to change the world.",
     "socialLinks": {
@@ -68,6 +77,9 @@
     "password": "hashedPassword101",
     "phoneNumber": 1112223333,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439011",
+    "college": "507f1f77bcf86cd799439012",
+    "department": "507f1f77bcf86cd799439014",
     "photo": "https://example.com/photos/emma-wilson.jpg",
     "quote": "The only way to do great work is to love what you do.",
     "socialLinks": {
@@ -88,6 +100,9 @@
     "password": "hashedPassword202",
     "phoneNumber": 4445556666,
     "graduationYear": 2025,
+    "campus": "507f1f77bcf86cd799439019",
+    "college": "507f1f77bcf86cd799439020",
+    "department": "507f1f77bcf86cd799439021",
     "photo": "https://example.com/photos/david-lee.jpg",
     "quote": "Innovation distinguishes between a leader and a follower.",
     "socialLinks": {
@@ -108,6 +123,9 @@
     "password": "hashedPassword303",
     "phoneNumber": 7778889999,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439022",
+    "college": "507f1f77bcf86cd799439023",
+    "department": "507f1f77bcf86cd799439024",
     "photo": "https://example.com/photos/sophia-anderson.jpg",
     "quote": "The best way to predict the future is to create it.",
     "socialLinks": {
@@ -128,6 +146,9 @@
     "password": "hashedPassword404",
     "phoneNumber": 3334445555,
     "graduationYear": 2025,
+    "campus": "507f1f77bcf86cd799439025",
+    "college": "507f1f77bcf86cd799439026",
+    "department": "507f1f77bcf86cd799439027",
     "photo": "https://example.com/photos/james-taylor.jpg",
     "quote": "Success is walking from failure to failure with no loss of enthusiasm.",
     "socialLinks": {
@@ -148,6 +169,9 @@
     "password": "hashedPassword505",
     "phoneNumber": 6667778888,
     "graduationYear": 2023,
+    "campus": "507f1f77bcf86cd799439022",
+    "college": "507f1f77bcf86cd799439028",
+    "department": "507f1f77bcf86cd799439029",
     "photo": "https://example.com/photos/olivia-martinez.jpg",
     "quote": "The only limit to our realization of tomorrow will be our doubts of today.",
     "socialLinks": {
@@ -168,6 +192,9 @@
     "password": "hashedPassword606",
     "phoneNumber": 9990001111,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439022",
+    "college": "507f1f77bcf86cd799439030",
+    "department": "507f1f77bcf86cd799439031",
     "photo": "https://example.com/photos/william-garcia.jpg",
     "quote": "The future belongs to those who prepare for it today.",
     "socialLinks": {
@@ -188,6 +215,9 @@
     "password": "hashedPassword707",
     "phoneNumber": 2223334444,
     "graduationYear": 2025,
+    "campus": "507f1f77bcf86cd799439016",
+    "college": "507f1f77bcf86cd799439032",
+    "department": "507f1f77bcf86cd799439033",
     "photo": "https://example.com/photos/ava-rodriguez.jpg",
     "quote": "The best way to find yourself is to lose yourself in the service of others.",
     "socialLinks": {
@@ -208,6 +238,9 @@
     "password": "hashedPassword808",
     "phoneNumber": 5556667777,
     "graduationYear": 2023,
+    "campus": "507f1f77bcf86cd799439034",
+    "college": "507f1f77bcf86cd799439035",
+    "department": "507f1f77bcf86cd799439036",
     "photo": "https://example.com/photos/lucas-lopez.jpg",
     "quote": "The journey of a thousand miles begins with one step.",
     "socialLinks": {
@@ -228,6 +261,9 @@
     "password": "hashedPassword909",
     "phoneNumber": 8889990000,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439034",
+    "college": "507f1f77bcf86cd799439037",
+    "department": "507f1f77bcf86cd799439038",
     "photo": "https://example.com/photos/mia-hernandez.jpg",
     "quote": "The only way to do great work is to love what you do.",
     "socialLinks": {
@@ -248,6 +284,9 @@
     "password": "hashedPassword1010",
     "phoneNumber": 1112223333,
     "graduationYear": 2025,
+    "campus": "507f1f77bcf86cd799439039",
+    "college": "507f1f77bcf86cd799439040",
+    "department": "507f1f77bcf86cd799439041",
     "photo": "https://example.com/photos/ethan-gonzalez.jpg",
     "quote": "Success is not the key to happiness. Happiness is the key to success.",
     "socialLinks": {
@@ -268,6 +307,9 @@
     "password": "hashedPassword1111",
     "phoneNumber": 4445556666,
     "graduationYear": 2023,
+    "campus": "507f1f77bcf86cd799439022",
+    "college": "507f1f77bcf86cd799439042",
+    "department": "507f1f77bcf86cd799439043",
     "photo": "https://example.com/photos/isabella-wilson.jpg",
     "quote": "The best preparation for tomorrow is doing your best today.",
     "socialLinks": {
@@ -288,6 +330,9 @@
     "password": "hashedPassword1212",
     "phoneNumber": 7778889999,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439025",
+    "college": "507f1f77bcf86cd799439044",
+    "department": "507f1f77bcf86cd799439045",
     "photo": "https://example.com/photos/mason-anderson.jpg",
     "quote": "The future belongs to those who believe in the beauty of their dreams.",
     "socialLinks": {
@@ -308,6 +353,9 @@
     "password": "hashedPassword1313",
     "phoneNumber": 2223334444,
     "graduationYear": 2025,
+    "campus": "507f1f77bcf86cd799439011",
+    "college": "507f1f77bcf86cd799439046",
+    "department": "507f1f77bcf86cd799439047",
     "photo": "https://example.com/photos/charlotte-taylor.jpg",
     "quote": "The only way to do great work is to love what you do.",
     "socialLinks": {
@@ -328,6 +376,9 @@
     "password": "hashedPassword1414",
     "phoneNumber": 5556667777,
     "graduationYear": 2023,
+    "campus": "507f1f77bcf86cd799439011",
+    "college": "507f1f77bcf86cd799439012",
+    "department": "507f1f77bcf86cd799439013",
     "photo": "https://example.com/photos/alexander-thomas.jpg",
     "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
     "socialLinks": {
@@ -348,6 +399,9 @@
     "password": "hashedPassword1515",
     "phoneNumber": 8889990000,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439019",
+    "college": "507f1f77bcf86cd799439020",
+    "department": "507f1f77bcf86cd799439021",
     "photo": "https://example.com/photos/amelia-moore.jpg",
     "quote": "The best way to predict the future is to create it.",
     "socialLinks": {
@@ -368,6 +422,9 @@
     "password": "hashedPassword1616",
     "phoneNumber": 1112223333,
     "graduationYear": 2025,
+    "campus": "507f1f77bcf86cd799439016",
+    "college": "507f1f77bcf86cd799439017",
+    "department": "507f1f77bcf86cd799439018",
     "photo": "https://example.com/photos/henry-jackson.jpg",
     "quote": "The future belongs to those who prepare for it today.",
     "socialLinks": {
@@ -388,6 +445,9 @@
     "password": "hashedPassword1717",
     "phoneNumber": 4445556666,
     "graduationYear": 2023,
+    "campus": "507f1f77bcf86cd799439022",
+    "college": "507f1f77bcf86cd799439023",
+    "department": "507f1f77bcf86cd799439024",
     "photo": "https://example.com/photos/harper-martin.jpg",
     "quote": "The only limit to our realization of tomorrow will be our doubts of today.",
     "socialLinks": {
@@ -408,6 +468,9 @@
     "password": "hashedPassword1818",
     "phoneNumber": 7778889999,
     "graduationYear": 2024,
+    "campus": "507f1f77bcf86cd799439011",
+    "college": "507f1f77bcf86cd799439014",
+    "department": "507f1f77bcf86cd799439015",
     "photo": "https://example.com/photos/sebastian-lee.jpg",
     "quote": "Success is walking from failure to failure with no loss of enthusiasm.",
     "socialLinks": {

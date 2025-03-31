@@ -50,6 +50,30 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    coverImage: {
+      type: String,
+    },
+    numberOfLikes: {
+      type: Number,
+    },
+    numberOfComments: {
+      type: Number,
+    },
+    campus: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Campus",
+      required: true,
+    },
+    college: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "College",
+      required: true,
+    },
+    department: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Department",
+      required: true,
+    },
     socialLinks: {
       telegram: { type: String },
       instagram: { type: String },

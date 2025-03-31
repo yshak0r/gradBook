@@ -1,10 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const {
+  getAllCampuses,
+  getAllColleges,
+  getAllDepartments,
+  getSuggested,
+  search,
+} = require("../../controllers/search_controller");
 
-const verify = () => console.log("verifying id...");
-const register = () => console.log("registering a user...");
-
-router.route("/verify").post(verify);
-router.route("/register").post(register);
+router.route("/campus").get(getAllCampuses);
+router.route("/college").get(getAllColleges);
+router.route("/department").get(getAllDepartments);
+router.route("/suggested").get(getSuggested);
+router.route("/search").get(search);
 
 module.exports = router;
