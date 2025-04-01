@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
-const Department = require("../models/department_model");
-const College = require("../models/college_model");
-const Campus = require("../models/campus_model");
 
 const connectDb = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://admin:admin@nodexpress.ped78m1.mongodb.net/gradBook_db?retryWrites=true&w=majority&appName=nodexpress"
+      "mongodb://192.168.142.70:27018/gradBook_db/?directConnection=true"
     );
     console.log("Database Connected");
   } catch (error) {
