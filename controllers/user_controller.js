@@ -1,7 +1,7 @@
 const User = require("../models/user_model");
 const Comment = require("../models/comment_model");
 const Notification = require("../models/notification_model");
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, isValidObjectId } = require("mongoose");
 
 // Prevent liking one's own self
 const likeProfile = async (req, res) => {
@@ -23,11 +23,14 @@ const likeProfile = async (req, res) => {
 
     // Check if already liked
     const isAlreadyLiked = user.likes.includes(targetUser._id);
+    console.log("already liked" + isAlreadyLiked);
 
     if (isAlreadyLiked) {
       // Unlike the profile
 
-      user.likes = user.likes.filter((id) => id != targetUser._id);
+      user.likes = user.likes.filter((id) => {
+        return id.toString() !== targetUser._id.toString();
+      });
       await user.save();
 
       return res.status(200).json({
@@ -56,6 +59,7 @@ const likeProfile = async (req, res) => {
     return res.status(500).json({
       message: "Error processing like action",
       isDone: false,
+      error: error.message,
     });
   }
 };
@@ -72,19 +76,19 @@ const saveProfile = async (req, res) => {
 
     if (!user || !targetUser) {
       return res.status(404).json({
-        success: false,
         message: "User not found",
+        isDone: false,
       });
     }
 
     // Check if already saved
     const isAlreadySaved = user.savedProfiles.includes(targetUser._id);
-    console.log("saved:");
+    console.log("already saved: " + isAlreadySaved);
 
     if (isAlreadySaved) {
       // Remove from saved profiles
       user.savedProfiles = user.savedProfiles.filter(
-        (id) => id !== targetUser._id
+        (id) => id.toString() !== targetUser._id.toString()
       );
       await user.save();
 
@@ -98,15 +102,14 @@ const saveProfile = async (req, res) => {
       await user.save();
 
       return res.status(200).json({
-        success: true,
         message: "Profile saved successfully",
-        saved: true,
+        isDone: true,
       });
     }
   } catch (error) {
     return res.status(500).json({
-      success: false,
       message: "Error processing save action",
+      isDone: false,
       error: error.message,
     });
   }
@@ -118,8 +121,8 @@ const commentOnProfile = async (req, res) => {
 
     // Check if both users exist
     const [user, targetUser] = await Promise.all([
-      User.findById(userId),
-      User.findById(targetUserId),
+      User.findOne({ username: userId }),
+      User.findOne({ username: targetUserId }),
     ]);
 
     if (!user || !targetUser) {
@@ -128,19 +131,22 @@ const commentOnProfile = async (req, res) => {
         message: "User not found",
       });
     }
+    console.log("both exists");
 
     // Check if target user's comment privacy is private
-    if (targetUser.commentPrivacy === "private") {
-      return res.status(403).json({
-        success: false,
-        message: "This profile has private comments",
-      });
-    }
+    // if (targetUser.commentPrivacy === "private") {
+    //   return res.status(403).json({
+    //     success: false,
+    //     message: "This profile has private comments",
+    //   });
+    // }
+
+    console.log(isValidObjectId(userId));
 
     // Create new comment
     const comment = await Comment.create({
-      user: userId,
-      profile: targetUserId,
+      user: user._id,
+      profile: targetUser._id,
       text: text,
     });
 
@@ -150,15 +156,14 @@ const commentOnProfile = async (req, res) => {
 
     // Create notification for the target user
     await Notification.create({
-      user: targetUserId,
-      type: "comment",
-      fromUser: userId,
+      user: targetUser._id,
+      type: `comment`,
+      fromUser: user._id,
     });
 
     return res.status(200).json({
-      success: true,
       message: "Comment added successfully",
-      comment: comment,
+      isDone: true,
     });
   } catch (error) {
     return res.status(500).json({
