@@ -2,6 +2,7 @@ const User = require("../models/user_model");
 const Department = require("../models/department_model");
 const College = require("../models/college_model");
 const Campus = require("../models/campus_model");
+const { default: mongoose } = require("mongoose");
 
 const getAllDepartments = async (req, res) => {
   try {
@@ -53,11 +54,11 @@ const getAllCampuses = async (req, res) => {
 
 const getSuggested = async (req, res) => {
   try {
-    const { userId } = req.params;
-    const suggestedUsers = [];
+    const _id = req.query._id;
 
     // 1. Get users liked by the target user
-    const user = await User.findById(userId).select("likes");
+    const user = await User.findById(_id).select("likes");
+    console.log(user);
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -81,20 +82,19 @@ const getSuggested = async (req, res) => {
     const secondDegreeUsers = await User.find({
       _id: {
         $in: uniqueSecondDegreeLikes,
-        $ne: userId, // Exclude the requesting user
+        $ne: _id, // Exclude the requesting user
       },
     })
       .select("firstName lastName surname username email photo graduationYear")
       .limit(10);
 
     // 3. Get users with similar academic background
-    const targetUser = await User.findById(userId).select(
-      "campus college department graduationYear"
+    const targetUser = await User.findById(_id).select(
+      "college department graduationYear"
     );
 
     const similarUsers = await User.find({
-      _id: { $ne: userId }, // Exclude the requesting user
-      campus: targetUser.campus,
+      _id: { $ne: _id }, // Exclude the requesting user
       college: targetUser.college,
       department: targetUser.department,
       graduationYear: targetUser.graduationYear,
@@ -102,8 +102,13 @@ const getSuggested = async (req, res) => {
       .select("firstName lastName surname username email photo graduationYear")
       .limit(10);
 
+    for (i in similarUsers) {
+      console.log("similarUser:" + i);
+    }
+
     // Combine and deduplicate results
     const allSuggestedUsers = [...secondDegreeUsers, ...similarUsers];
+
     const uniqueSuggestedUsers = Array.from(
       new Map(
         allSuggestedUsers.map((user) => [user._id.toString(), user])
