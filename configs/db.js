@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const connectDb = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb://192.168.142.70:27018/gradBook_db/?directConnection=true"
+      "mongodb+srv://admin:admin@nodexpress.ped78m1.mongodb.net/gradBook_db?retryWrites=true&w=majority&appName=nodexpress"
     );
     console.log("Database Connected");
   } catch (error) {
