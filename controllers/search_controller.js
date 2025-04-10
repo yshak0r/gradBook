@@ -58,7 +58,7 @@ const getSuggested = async (req, res) => {
 
     // 1. Get users liked by the target user
     const user = await User.findById(_id).select("likes");
-    console.log(user);
+
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -101,10 +101,6 @@ const getSuggested = async (req, res) => {
     })
       .select("firstName lastName surname username email photo graduationYear")
       .limit(10);
-
-    for (i in similarUsers) {
-      console.log("similarUser:" + i);
-    }
 
     // Combine and deduplicate results
     const allSuggestedUsers = [...secondDegreeUsers, ...similarUsers];
