@@ -62,16 +62,19 @@ const userSchema = new mongoose.Schema(
     campus: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Campus",
+      autopopulate: true,
       required: true,
     },
     college: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "College",
+      autopopulate: true,
       required: true,
     },
     department: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Department",
+      autopopulate: true,
       required: true,
     },
     socialLinks: {
@@ -82,6 +85,9 @@ const userSchema = new mongoose.Schema(
     },
     likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }], // Users they liked
     savedProfiles: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }], // Saved users
+    likedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }], // liked posts
+    savedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }], // saved posts
+
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
     views: {
       type: Number,

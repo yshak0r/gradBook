@@ -2,7 +2,7 @@ const User = require("../models/user_model");
 const Department = require("../models/department_model");
 const College = require("../models/college_model");
 const Campus = require("../models/campus_model");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 const getAllDepartments = async (req, res) => {
   try {
@@ -123,14 +123,66 @@ const getSuggested = async (req, res) => {
 
 const search = async (req, res) => {
   try {
-    const profiles = await User.find();
-    res.status(200).json(profiles);
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: "Error searching profiles",
-      message: error.message,
+    // Extract query parameters with default values
+    const { page = 1, size = 20, query, sort } = req.query;
+
+    // Convert page and size to integers
+    const pageNumber = parseInt(page, 10);
+    const pageSize = parseInt(size, 10);
+    const skip = (pageNumber - 1) * pageSize;
+
+    // Initialize filter object
+    const filter = {};
+
+    // Search by query in firstName, lastName, surname, or username
+    if (query) {
+      const searchRegex = new RegExp(query, "i"); // Case-insensitive regex
+      filter.$or = [
+        { firstName: searchRegex },
+        { lastName: searchRegex },
+        { surname: searchRegex },
+        { username: searchRegex },
+        // { college: searchRegex },
+        // { campus: searchRegex },
+        // { department: searchRegex },
+      ];
+    }
+
+    let sortOption = {};
+    switch (sort) {
+      case "1":
+        sortOption = { numberOfLikes: -1 };
+        break;
+      case "2":
+        sortOption = { firstName: 1 };
+        break;
+      case "3":
+        sortOption = { firstName: -1 };
+        break;
+      default:
+        sortOption = { createdAt: -1 };
+    }
+
+    const users = await User.find(filter)
+      .sort(sortOption)
+      .skip(skip)
+      .limit(pageSize)
+      .populate("campus college department") // if needed
+      .exec();
+
+    const totalUsers = await User.countDocuments(filter);
+
+    // Send response
+    res.status(200).json({
+      page: pageNumber,
+      size: pageSize,
+      totalUsers,
+      totalPages: Math.ceil(totalUsers / pageSize),
+      users,
     });
+  } catch (error) {
+    console.error("Error searching user documents:", error);
+    res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
 

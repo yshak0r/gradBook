@@ -1,7 +1,7 @@
 const User = require("../models/user_model");
 const Comment = require("../models/comment_model");
 const Notification = require("../models/notification_model");
-const { default: mongoose, isValidObjectId } = require("mongoose");
+const mongoose = require("mongoose");
 
 // Prevent liking one's own self
 const likeProfile = async (req, res) => {
@@ -33,6 +33,9 @@ const likeProfile = async (req, res) => {
       });
       await user.save();
 
+      // targetUser.numberOfLikes -= 1;
+      // await targetUser.save();
+
       return res.status(200).json({
         message: "Profile unliked successfully",
         isDone: true,
@@ -42,6 +45,9 @@ const likeProfile = async (req, res) => {
 
       user.likes.push(targetUser._id);
       await user.save();
+
+      // targetUser.numberOfLikes += 1;
+      // await targetUser.save();
 
       // Create notification for the target user
       await Notification.create({
@@ -131,17 +137,8 @@ const commentOnProfile = async (req, res) => {
         message: "User not found",
       });
     }
-    console.log("both exists");
 
     // Check if target user's comment privacy is private
-    // if (targetUser.commentPrivacy === "private") {
-    //   return res.status(403).json({
-    //     success: false,
-    //     message: "This profile has private comments",
-    //   });
-    // }
-
-    console.log(isValidObjectId(userId));
 
     // Create new comment
     const comment = await Comment.create({
@@ -174,8 +171,85 @@ const commentOnProfile = async (req, res) => {
   }
 };
 
+const getLikedProfiles = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const user = await User.findOne({ username: userId }).select("likes");
+
+    if (!user) {
+      return res.status(404).json({
+        isDone: false,
+        message: "User not found",
+      });
+    }
+    return res.status(200).json({
+      isDone: true,
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error getting liked profiles",
+      isDone: false,
+      error: error.message,
+    });
+  }
+};
+
+const getSavedProfiles = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const user = await User.findOne({ username: userId }).select(
+      "savedProfiles"
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        isDone: false,
+        message: "User not found",
+      });
+    }
+    return res.status(200).json({
+      isDone: true,
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error getting saved profiles",
+      isDone: false,
+      error: error.message,
+    });
+  }
+};
+
+const getComments = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const user = await User.findOne({ username: userId }).select("comments");
+
+    if (!user) {
+      return res.status(404).json({
+        isDone: false,
+        message: "User not found",
+      });
+    }
+    return res.status(200).json({
+      isDone: true,
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error getting comments of a user",
+      isDone: false,
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   likeProfile,
   saveProfile,
   commentOnProfile,
+  getLikedProfiles,
+  getSavedProfiles,
+  getComments,
 };

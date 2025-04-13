@@ -3,12 +3,18 @@ const {
   likeProfile,
   saveProfile,
   commentOnProfile,
+  getLikedProfiles,
+  getSavedProfiles,
+  getComments,
 } = require("../../controllers/user_controller");
 const router = express.Router();
 
 router.route("/like").post(likeProfile);
 router.route("/save").post(saveProfile);
 router.route("/comment").post(commentOnProfile);
+router.route("/liked").get(getLikedProfiles);
+router.route("/saved").get(getSavedProfiles);
+router.route("/comments").get(getComments);
 
 // //////////////////////////////////////////////////////
 // router.route("/").get(getRandomProfiles);
