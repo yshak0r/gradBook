@@ -82,4 +82,37 @@ const getPost = async (req, res) => {
   }
 };
 
-module.exports = { getPost };
+const getLikedPosts = async (req, res) => {
+  try {
+    const userId = req.body;
+    const likedPosts = await User.findOne({ username: userId }).select("likes");
+
+    return res.status(200).json({
+      likedPosts,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error getting liked posts",
+      isDone: false,
+      error: error.message,
+    });
+  }
+};
+const getSavedPosts = async (req, res) => {
+  try {
+    const userId = req.body;
+    const savedPosts = await User.findOne({ username: userId }).select("saved");
+
+    return res.status(200).json({
+      savedPosts,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error getting saved posts",
+      isDone: false,
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { getPost, getLikedPosts, getSavedPosts };
