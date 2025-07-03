@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const connectDb = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb://localhost:27017/gradBook_db"
+      "mongodb+srv://admin:admin@nodexpress.ped78m1.mongodb.net/gradBook_db?retryWrites=true&w=majority&appName=nodexpress"
     );
     console.log("Database Connected");
   } catch (error) {

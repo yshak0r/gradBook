@@ -2,7 +2,7 @@ const User = require("../models/user_model");
 const Department = require("../models/department_model");
 const College = require("../models/college_model");
 const Campus = require("../models/campus_model");
-const { default: mongoose, Mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 const getAllDepartments = async (req, res) => {
   try {

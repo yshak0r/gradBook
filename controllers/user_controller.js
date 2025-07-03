@@ -1,9 +1,9 @@
 const User = require("../models/user_model");
 const Comment = require("../models/comment_model");
 const Notification = require("../models/notification_model");
+const mongoose = require("mongoose");
 
-// Prevent liking one's own self?
-
+// Prevent liking one's own self
 const likeProfile = async (req, res) => {
   try {
     const { userId, targetUserId } = req.body;
